@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <parameter name="option" value="true"/>
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="mavenProject.phpTravel.TestClass">
+        <methods>
+          <include name="compareExpectedAndActualProductTitle"/>
+          <include name="compareExpectedAndActualCompanyTitle"/>
+          <include name="testEnvironment"/>
+          <include name="Endmethod"/>
+        </methods>
+      </class> <!-- mavenProject.phpTravel.TestClass -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
