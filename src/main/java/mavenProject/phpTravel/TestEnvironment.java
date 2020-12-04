@@ -11,13 +11,26 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
+/*
+ * Author:
+ * Date:
+ * Info: Class to setup the test environment
+ * 
+ * 
+ * */
 public class TestEnvironment {
-	
+
 	static WebDriver driver;
 	SoftAssert softAssertion = new SoftAssert();
 
+	/*
+	 * Method to open the Chrome browser in normal or incognito mode depending upon
+	 * parameter that is passed.
+	 *
+	 * 
+	 */
 	@BeforeSuite(alwaysRun = true)
-	@Parameters({"option"})
+	@Parameters({ "option" })
 	public void testEnvironment(String option) {
 		System.out.println(option);
 		System.setProperty("webdriver.chrome.driver",
@@ -41,6 +54,11 @@ public class TestEnvironment {
 		}
 	}
 
+	/*
+	 * Method that is executed once all the test is done, in this method driver and
+	 * browser is closed.
+	 * 
+	 */
 	@AfterSuite(alwaysRun = true)
 	public void Endmethod() {
 		driver.quit();

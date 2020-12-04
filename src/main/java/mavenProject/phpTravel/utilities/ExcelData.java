@@ -15,6 +15,12 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+/*
+ * Author:
+ * Date: 
+ * Info: Class to read the excel sheet
+ * 
+ * */
 public class ExcelData {
 
 	public FileInputStream fis = null;
@@ -26,6 +32,12 @@ public class ExcelData {
 	String xlFilePath;
 	List<String> data = new ArrayList<String>();
 
+	/*
+	 * Method to read the excel sheet and return the list of element that is stored
+	 * in the excel sheet. Note: In this method, Header row and the column is
+	 * ingnored.
+	 * 
+	 */
 	public List<String> readData(String address) throws IOException {
 		try {
 			fis = new FileInputStream(new File(System.getProperty("user.dir") + "\\" + address + "\\"));

@@ -8,7 +8,9 @@
         <methods>
           <include name="compareExpectedAndActualProductTitle"/>
           <include name="compareExpectedAndActualCompanyTitle"/>
+          <include name="compareExpectedAndActualFeatureTitle"/>
           <include name="testEnvironment"/>
+          <include name="compareExpectedAndActualTitle"/>
           <include name="Endmethod"/>
         </methods>
       </class> <!-- mavenProject.phpTravel.TestClass -->
