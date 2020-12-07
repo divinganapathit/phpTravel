@@ -114,11 +114,13 @@ public class TestClass extends TestEnvironment {
 	 * 
 	 */
 	@Test(priority = 5, enabled = true)
-	public void moveToDemoWindow() {
+	public void moveToDemoWindow() throws InterruptedException {
 
 		BasePage objBasePage = new BasePage(driver);
 		PHPTravelsHomePage objPHPTravelsHomePage = new PHPTravelsHomePage(driver);
+		PHPTravelsDemoFlightBooking objPhpTravelsDemoFlightBooking = new PHPTravelsDemoFlightBooking(driver);
 		objBasePage.switchWindows(objPHPTravelsHomePage.hompageFrontEnd_Xpath);
+		objPhpTravelsDemoFlightBooking.bookFlightTickect();
 
 	}
 
