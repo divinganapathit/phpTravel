@@ -30,13 +30,14 @@ public class TestClass extends TestEnvironment {
 
 			System.out.println(objPHPTravelsHomePage.getActualTitle(i));
 			softAssertion.assertEquals(objBasePage.getExcelData(i, address), objPHPTravelsHomePage.getActualTitle(i));
+			softAssertion.assertAll("Actual and expected titles in the website is equal.");
 
 		}
 	}
 
 	/*
-	 * Test method used to verify the content in the drop-down option of the features
-	 * menu, with the expected value, from the website.
+	 * Test method used to verify the content in the drop-down option of the
+	 * features menu, with the expected value, from the website.
 	 * 
 	 */
 	@Test(priority = 2, enabled = true)
@@ -53,6 +54,7 @@ public class TestClass extends TestEnvironment {
 
 			System.out.println(objBasePage.getActualDropDownTitle(i));
 			softAssertion.assertEquals(objBasePage.getExcelData(i, address), objBasePage.getActualDropDownTitle(i));
+			softAssertion.assertAll("Actual and expected titles in the features drop-down is equal");
 
 		}
 
@@ -65,9 +67,6 @@ public class TestClass extends TestEnvironment {
 	 */
 	@Test(priority = 3, enabled = true)
 	public void compareExpectedAndActualProductTitle() throws InterruptedException, IOException {
-		
-		
-		
 
 		BasePage objBasePage = new BasePage(driver);
 //		driver.navigate().to(basePage.getData("url"));
@@ -80,6 +79,7 @@ public class TestClass extends TestEnvironment {
 
 			System.out.println(objBasePage.getActualDropDownTitle(i));
 			softAssertion.assertEquals(objBasePage.getExcelData(i, address), objBasePage.getActualDropDownTitle(i));
+			softAssertion.assertAll("Actual and expected titles in the product drop-down is equal");
 
 		}
 
@@ -104,6 +104,7 @@ public class TestClass extends TestEnvironment {
 
 			System.out.println(objBasePage.getActualDropDownTitle(i));
 			softAssertion.assertEquals(objBasePage.getExcelData(i, address), objBasePage.getActualDropDownTitle(i));
+			softAssertion.assertAll("Actual and expected titles in the company drop-down is equal");
 
 		}
 	}

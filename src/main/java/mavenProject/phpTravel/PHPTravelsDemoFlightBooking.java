@@ -2,6 +2,7 @@ package mavenProject.phpTravel;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -11,8 +12,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/*
+ * Author:
+ * Date:
+ * Info: This class is were automation of flight booking coded
+ * 
+ * 
+ * */
 public class PHPTravelsDemoFlightBooking extends BasePage {
 
+	/*
+	 * Initialization of required web-element for performing automation testing
+	 * flight booking
+	 * 
+	 * 
+	 */
 	@FindBy(xpath = "//*[contains(@class,'flights')]")
 	public WebElement click_Flight_Option;
 
@@ -28,17 +42,17 @@ public class PHPTravelsDemoFlightBooking extends BasePage {
 	@FindBy(xpath = "//input[contains(@id,'FlightsDateStart')]")
 	public WebElement depart_Click;
 
-	@FindBy(xpath = "//div[contains(@id,'datepickers-container')]//div[contains(@class,'datepicker--nav-title')]")
-	public WebElement click_MonthAndYear_Title;
+	@FindBy(xpath = "//input[contains(@id,'FlightsDateEnd')]")
+	public WebElement returnTab_Click;
 
-	@FindBy(xpath = "//*[contains(@class,'datepicker--cells datepicker--cells-years')]")
-	public WebElement list_Year;
+	@FindBy(xpath = "(//*[contains(@class,'datepicker--cell datepicker--cell-day -current-')])[9]")
+	public WebElement click_Present_Date;
 
-	@FindBy(xpath = "//*[contains(@class,'datepicker--cells datepicker--cells-month')]")
-	public WebElement list_Month;
+	@FindBy(xpath = "(//*[contains(@class,'datepicker--nav-action')][contains(@data-action,'next')])[10]")
+	public WebElement click_Next_Month;
 
-	@FindBy(xpath = "//*[contains(@class,'datepicker--cells datepicker--cells-days')]")
-	public WebElement list_Day;
+	@FindBy(xpath = "(//button[@type ='submit'])[2]")
+	public WebElement click_Submit;
 
 	public PHPTravelsDemoFlightBooking(WebDriver driver) {
 
@@ -47,6 +61,14 @@ public class PHPTravelsDemoFlightBooking extends BasePage {
 
 	}
 
+	/*
+	 * -Method for automation testing of flight booking. 
+	 * -In this method flight
+	 * ticket for round trip is booked, for the current date till the date 7 days
+	 * after the current date.
+	 * 
+	 * 
+	 */
 	public void bookFlightTickect() throws InterruptedException {
 
 		click_Flight_Option.click();
@@ -71,27 +93,49 @@ public class PHPTravelsDemoFlightBooking extends BasePage {
 			System.out.println(returnDateArr[i]);
 		}
 		depart_Click.click();
-//		click_MonthAndYear_Title.click();
-//		driver.findElement(By.xpath("//div[@class='datepicker -bottom-left- -from-bottom-']/nav[1]/div[2]")).click();
-//		driver.findElement(By.xpath("//div[contains(text(),'2020')]")).click();
-		Map<String, String>monthsInNumbers = new HashMap<String , String>();
-		monthsInNumbers.put("Jan", "1");
-		monthsInNumbers.put("Feb", "2");
-		monthsInNumbers.put("Mar", "3");
-		monthsInNumbers.put("Apr", "4");
-		monthsInNumbers.put("May", "5");
-		monthsInNumbers.put("Jun", "6");
-		monthsInNumbers.put("Jul", "7");
-		monthsInNumbers.put("Aug", "8");
-		monthsInNumbers.put("Sep", "9");
-		monthsInNumbers.put("Oct", "10");
-		monthsInNumbers.put("Nov", "11");
-		monthsInNumbers.put("Dec", "12");
-		String departureMonth = monthsInNumbers.get(departureDateArr[1]);
-		depart_Click.sendKeys(departureDateArr[5]+"-"+departureMonth+"-"+departureDateArr[2]);
-		Thread.sleep(5000);
+
+		Map<String, String> monthsInNumbers = new HashMap<String, String>();
+		monthsInNumbers.put("Jan", "0");
+		monthsInNumbers.put("Feb", "1");
+		monthsInNumbers.put("Mar", "2");
+		monthsInNumbers.put("Apr", "3");
+		monthsInNumbers.put("May", "4");
+		monthsInNumbers.put("Jun", "5");
+		monthsInNumbers.put("Jul", "6");
+		monthsInNumbers.put("Aug", "7");
+		monthsInNumbers.put("Sep", "8");
+		monthsInNumbers.put("Oct", "9");
+		monthsInNumbers.put("Nov", "10");
+		monthsInNumbers.put("Dec", "11");
 		String returnMonth = monthsInNumbers.get(returnDateArr[1]);
-//		return_
+		Thread.sleep(5000);
+
+		click_Present_Date.click();
+		returnTab_Click.click();
+
+		boolean flag = false;
+		while (flag == false) {
+			if (driver.findElements(
+					By.xpath("(//*[contains(@class,'datepicker--cell datepicker--cell-day')][@data-date=\'"
+							+ returnDateArr[2] + "\'][ @data-month=\'" + returnMonth + "\' ][ @data-year=\'"
+							+ returnDateArr[5] + "\'])[10]"))
+					.size() > 0) {
+				List<WebElement> dateList = driver.findElements(
+						By.xpath("(//*[contains(@class,'datepicker--cell datepicker--cell-day')][@data-date=\'"
+								+ returnDateArr[2] + "\'][ @data-month=\'" + returnMonth + "\' ][ @data-year=\'"
+								+ returnDateArr[5] + "\'])[10]"));
+				System.out.println("Number of elements: " + dateList.size());
+				Iterator<WebElement> dateIterate = dateList.iterator();
+				while (dateIterate.hasNext()) {
+					dateIterate.next().click();
+				}
+				flag = true;
+				break;
+			} else {
+				click_Next_Month.click();
+			}
+		}
+		click_Submit.click();
 
 	}
 
