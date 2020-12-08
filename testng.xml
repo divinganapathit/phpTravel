@@ -7,9 +7,9 @@
 			<class name="mavenProject.phpTravel.TestClass">
 				<methods>
 					<include name="compareExpectedAndActualTitle" />
-					<exclude name="compareExpectedAndActualFeatureTitle" />
-					<exclude name="compareExpectedAndActualProductTitle" />
-					<exclude name="compareExpectedAndActualCompanyTitle" />
+					<include name="compareExpectedAndActualFeatureTitle" />
+					<include name="compareExpectedAndActualProductTitle" />
+					<include name="compareExpectedAndActualCompanyTitle" />
 					<include name="moveToDemoWindow" />
 				</methods>
 			</class>

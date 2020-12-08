@@ -108,7 +108,7 @@ public class PHPTravelsDemoFlightBooking extends BasePage {
 		monthsInNumbers.put("Nov", "10");
 		monthsInNumbers.put("Dec", "11");
 		String returnMonth = monthsInNumbers.get(returnDateArr[1]);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		click_Present_Date.click();
 		returnTab_Click.click();

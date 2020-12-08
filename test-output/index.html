@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,6 +102,21 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
                     <div class="method-list-content passed suite-Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="mavenProject.phpTravel.TestClass" class="method navigator-link" hash-for-method="compareExpectedAndActualCompanyTitle">compareExpectedAndActualCompanyTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="mavenProject.phpTravel.TestClass" class="method navigator-link" hash-for-method="compareExpectedAndActualFeatureTitle">compareExpectedAndActualFeatureTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="mavenProject.phpTravel.TestClass" class="method navigator-link" hash-for-method="compareExpectedAndActualProductTitle">compareExpectedAndActualProductTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="mavenProject.phpTravel.TestClass" class="method navigator-link" hash-for-method="compareExpectedAndActualTitle">compareExpectedAndActualTitle</a> <!-- method navigator-link -->
@@ -130,6 +145,27 @@
               <span class="class-name">mavenProject.phpTravel.TestClass</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="compareExpectedAndActualCompanyTitle">
+                  </a> <!-- compareExpectedAndActualCompanyTitle -->
+                  <span class="method-name">compareExpectedAndActualCompanyTitle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="compareExpectedAndActualFeatureTitle">
+                  </a> <!-- compareExpectedAndActualFeatureTitle -->
+                  <span class="method-name">compareExpectedAndActualFeatureTitle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="compareExpectedAndActualProductTitle">
+                  </a> <!-- compareExpectedAndActualProductTitle -->
+                  <span class="method-name">compareExpectedAndActualProductTitle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="compareExpectedAndActualTitle">
@@ -162,10 +198,10 @@
       &lt;class name=&quot;mavenProject.phpTravel.TestClass&quot;&gt;
         &lt;methods&gt;
           &lt;include name=&quot;compareExpectedAndActualTitle&quot;/&gt;
+          &lt;include name=&quot;compareExpectedAndActualFeatureTitle&quot;/&gt;
+          &lt;include name=&quot;compareExpectedAndActualProductTitle&quot;/&gt;
+          &lt;include name=&quot;compareExpectedAndActualCompanyTitle&quot;/&gt;
           &lt;include name=&quot;moveToDemoWindow&quot;/&gt;
-          &lt;exclude name=&quot;compareExpectedAndActualFeatureTitle&quot;/&gt;
-          &lt;exclude name=&quot;compareExpectedAndActualProductTitle&quot;/&gt;
-          &lt;exclude name=&quot;compareExpectedAndActualCompanyTitle&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- mavenProject.phpTravel.TestClass --&gt;
     &lt;/classes&gt;
@@ -207,20 +243,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(5);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'moveToDemoWindow')
 data.setCell(0, 2, 'mavenProject.phpTravel.TestClass')
-data.setCell(0, 3, 34801);
+data.setCell(0, 3, 37521);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'compareExpectedAndActualTitle')
+data.setCell(1, 1, 'compareExpectedAndActualFeatureTitle')
 data.setCell(1, 2, 'mavenProject.phpTravel.TestClass')
-data.setCell(1, 3, 20432);
+data.setCell(1, 3, 6146);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'compareExpectedAndActualProductTitle')
+data.setCell(2, 2, 'mavenProject.phpTravel.TestClass')
+data.setCell(2, 3, 6012);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'compareExpectedAndActualCompanyTitle')
+data.setCell(3, 2, 'mavenProject.phpTravel.TestClass')
+data.setCell(3, 3, 5646);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'compareExpectedAndActualTitle')
+data.setCell(4, 2, 'mavenProject.phpTravel.TestClass')
+data.setCell(4, 3, 4529);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 55 seconds</span>
+              <span class="suite-total-time">Total running time: 59 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -235,20 +283,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">mavenProject.phpTravel.TestClass</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">compareExpectedAndActualProductTitle</span>
-                <br/>
-                <span class="ignored-method-name">compareExpectedAndActualCompanyTitle</span>
-                <br/>
-                <span class="ignored-method-name">compareExpectedAndActualFeatureTitle</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -264,15 +301,27 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="test-method">
                 <span class="method-name">compareExpectedAndActualTitle</span>
-                <span class="method-start">6254 ms</span>
+                <span class="method-start">6592 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">compareExpectedAndActualFeatureTitle</span>
+                <span class="method-start">11130 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">compareExpectedAndActualProductTitle</span>
+                <span class="method-start">17282 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">compareExpectedAndActualCompanyTitle</span>
+                <span class="method-start">23300 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">moveToDemoWindow</span>
-                <span class="method-start">26699 ms</span>
+                <span class="method-start">28954 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">Endmethod</span>
-                <span class="method-start">61537 ms</span>
+                <span class="method-start">66572 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
