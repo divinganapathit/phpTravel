@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
 
 /*
  * Author:
@@ -71,13 +72,19 @@ public class PHPTravelsDemoFlightBooking extends BasePage {
 	 */
 	public void bookFlightTickect() throws InterruptedException {
 
+		Reporter.log("Method for automation testing of flight booking.");
 		click_Flight_Option.click();
+		Reporter.log("Click on flight option.");
 		roundTrip_Radio_Button.click();
+		Reporter.log("Click on round trip option.");
 		class_DropDown_Click.click();
+		Reporter.log("Click on drop-down to choose the class of flight ticket.");
 		String xpath_DropDownElement = xpathToString(dropDown_Elements);
 		List<WebElement> dropDownElement = driver.findElements(By.xpath(xpath_DropDownElement));
 		dropDownElement.get(1).click();
+		Reporter.log("Click on business class option.");
 //		Iterator<WebElement> listOfClassOption = dropDownElement.iterator();
+		Reporter.log("Initialization of Calendar class.");
 		Calendar objCalendar = Calendar.getInstance();
 		String departureDate = objCalendar.getTime().toString();
 		System.out.println(departureDate);
@@ -93,6 +100,7 @@ public class PHPTravelsDemoFlightBooking extends BasePage {
 			System.out.println(returnDateArr[i]);
 		}
 		depart_Click.click();
+		Reporter.log("Click on depart option.");
 
 		Map<String, String> monthsInNumbers = new HashMap<String, String>();
 		monthsInNumbers.put("Jan", "0");
@@ -111,7 +119,9 @@ public class PHPTravelsDemoFlightBooking extends BasePage {
 		Thread.sleep(2000);
 
 		click_Present_Date.click();
+		Reporter.log("Click on the current date on the calendar.");
 		returnTab_Click.click();
+		Reporter.log("Click on return option.");
 
 		boolean flag = false;
 		while (flag == false) {
@@ -136,6 +146,7 @@ public class PHPTravelsDemoFlightBooking extends BasePage {
 			}
 		}
 		click_Submit.click();
+		Reporter.log("Click on submit option.");
 
 	}
 

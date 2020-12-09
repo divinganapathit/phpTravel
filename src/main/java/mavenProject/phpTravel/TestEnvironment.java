@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
@@ -37,7 +38,9 @@ public class TestEnvironment {
 				System.getProperty("user.dir") + "\\src\\resource\\chromedriver.exe");
 		if (option.contentEquals("false")) {
 			driver = new ChromeDriver();
+			Reporter.log("Launching Chrome Browser.");
 			driver.manage().window().maximize();
+			Reporter.log("Maximize the browser window.");
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		} else {
@@ -49,7 +52,9 @@ public class TestEnvironment {
 			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			driver = new ChromeDriver(capabilities);
+			Reporter.log("Launching Chrome Browser in Incognito mode.");
 			driver.manage().window().maximize();
+			Reporter.log("Maximize the browser window.");
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		}
 	}
@@ -62,6 +67,7 @@ public class TestEnvironment {
 	@AfterSuite(alwaysRun = true)
 	public void Endmethod() {
 		driver.quit();
+		Reporter.log("Close the browser and end all the tasks related to browser.");
 	}
 
 }

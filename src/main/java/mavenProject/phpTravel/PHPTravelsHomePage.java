@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
 
 /*
  * Author:
@@ -83,6 +84,7 @@ public class PHPTravelsHomePage extends BasePage {
 
 		int listSize = titleList.size();
 		titleList.remove(listSize - 1);
+		Reporter.log("Method that returns list to elements that are title in the website.");
 		return titleList;
 
 	}
@@ -91,6 +93,7 @@ public class PHPTravelsHomePage extends BasePage {
 
 		List<String> actualTitleList = new ArrayList<String>();
 		actualTitleList = titleList;
+		Reporter.log("Return individual element that is stored in the list of titles.");
 		return actualTitleList.get(testIndex);
 
 	}

@@ -2,6 +2,7 @@ package mavenProject.phpTravel;
 
 import java.io.IOException;
 
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 /*
@@ -22,6 +23,7 @@ public class TestClass extends TestEnvironment {
 
 		BasePage objBasePage = new BasePage(driver);
 		driver.navigate().to(objBasePage.getData("url"));
+		Reporter.log("Navigate to the given URL");
 		PHPTravelsHomePage objPHPTravelsHomePage = new PHPTravelsHomePage(driver);
 		String address = objBasePage.getData("title");
 		int index = objPHPTravelsHomePage.headerTitleString(objPHPTravelsHomePage.listOfHeaders).size();
@@ -33,6 +35,7 @@ public class TestClass extends TestEnvironment {
 			softAssertion.assertAll("Actual and expected titles in the website is equal.");
 
 		}
+		Reporter.log("Comparison of actual and expected title is completed.");
 	}
 
 	/*
@@ -57,6 +60,7 @@ public class TestClass extends TestEnvironment {
 			softAssertion.assertAll("Actual and expected titles in the features drop-down is equal");
 
 		}
+		Reporter.log("Comparison of actual and expected features drop-down title is completed.");
 
 	}
 
@@ -82,6 +86,7 @@ public class TestClass extends TestEnvironment {
 			softAssertion.assertAll("Actual and expected titles in the product drop-down is equal");
 
 		}
+		Reporter.log("Comparison of actual and expected product drop-down title is completed.");
 
 	}
 
@@ -107,6 +112,7 @@ public class TestClass extends TestEnvironment {
 			softAssertion.assertAll("Actual and expected titles in the company drop-down is equal");
 
 		}
+		Reporter.log("Comparison of actual and expected company drop down title is completed.");
 	}
 
 	/*
@@ -122,6 +128,7 @@ public class TestClass extends TestEnvironment {
 		PHPTravelsDemoFlightBooking objPhpTravelsDemoFlightBooking = new PHPTravelsDemoFlightBooking(driver);
 		objBasePage.switchWindows(objPHPTravelsHomePage.hompageFrontEnd_Xpath);
 		objPhpTravelsDemoFlightBooking.bookFlightTickect();
+		Reporter.log("Completed flight booking.");
 
 	}
 
