@@ -2,6 +2,7 @@ package mavenProject.phpTravel;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -55,7 +56,6 @@ public class BasePage {
 		ExcelData expectedData = new ExcelData();
 		List<String> excelValue = new ArrayList<String>();
 		excelValue = expectedData.readData(address);
-		Reporter.log("Read and return data that is stored in the excel sheet.");
 		return excelValue.get(index);
 
 	}
@@ -66,7 +66,6 @@ public class BasePage {
 	 * 
 	 */
 	public String getData(String key) {
-		Reporter.log("Read and return data that is stored in properties files.");
 		return getvalue.getString(key);
 	}
 
@@ -96,7 +95,6 @@ public class BasePage {
 			System.out.println("Element not Found!!");
 		}
 
-		Reporter.log("Delay Method activated");
 		return status;
 	}
 
@@ -111,7 +109,6 @@ public class BasePage {
 //		System.out.println(prefixRemovedXpath);
 		int lengthOfString = prefixRemovedXpath.length();
 		String xpathInStringForm = prefixRemovedXpath.substring(0, lengthOfString - 1);
-		Reporter.log("Method to return xpath in string format, that is stored in webelement format.");
 		return xpathInStringForm;
 
 	}
@@ -128,7 +125,6 @@ public class BasePage {
 		Set<String> childWindow = driver.getWindowHandles();
 		System.out.println(childWindow);
 		Iterator<String> interateBtwWindow = childWindow.iterator();
-		Reporter.log("Method to switch between windows.");
 		while (interateBtwWindow.hasNext()) {
 
 			String nextWindow = interateBtwWindow.next();
@@ -144,7 +140,6 @@ public class BasePage {
 	public void hover(WebElement xpath) {
 
 		Actions hoverAction = new Actions(driver);
-		Reporter.log("Method used to hover over elements");
 		hoverAction.moveToElement(xpath).build().perform();
 
 	}
@@ -170,7 +165,6 @@ public class BasePage {
 			titleList.add(featureTitle);
 
 		}
-		Reporter.log("Method return a list of elements that is stored in the drop-down menu.");
 		return titleList;
 
 	}
@@ -179,7 +173,6 @@ public class BasePage {
 
 		List<String> actualTitleList = new ArrayList<String>();
 		actualTitleList = titleList;
-		Reporter.log("Return individual element that is stored a list, that stored elements from the drop-down menu.");
 		return actualTitleList.get(testIndex);
 
 	}
@@ -193,5 +186,17 @@ public class BasePage {
 		FileUtils.copyFile(screenshotFile,screenshotFolder);
 		Reporter.log("<br><img src='"+screenshotFolder+"' alt='error screenshot' height='400' width='400'/><br>");
 	}
+	
+	public String capture() throws IOException
+    {
+		Date currentDate = new Date();
+		String screenshotFileName = currentDate.toString().replace(" ", "-").replace(":", "-");
+		File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		String destination = ".//screenshot//"+ screenshotFileName+".png";
+		File screenshotFolder =  new File(destination);
+		FileUtils.copyFile(screenshotFile,screenshotFolder);
+		
+		return destination;
+    }
 
 }

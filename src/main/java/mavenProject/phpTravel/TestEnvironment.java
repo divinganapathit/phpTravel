@@ -8,9 +8,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
+
+import com.aventstack.extentreports.ExtentReporter;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 /*
  * Author:
@@ -23,6 +31,9 @@ public class TestEnvironment {
 
 	static WebDriver driver;
 	SoftAssert softAssertion = new SoftAssert();
+	public static ExtentReports extent;
+	public  static ExtentTest extentTest;
+	public static ExtentHtmlReporter htmlReport;
 
 	/*
 	 * Method to open the Chrome browser in normal or incognito mode depending upon
@@ -68,6 +79,27 @@ public class TestEnvironment {
 	public void Endmethod() {
 		driver.quit();
 		Reporter.log("Close the browser and end all the tasks related to browser.");
+	}
+
+	@BeforeTest
+	public void setExtent() {
+
+		htmlReport = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/ExtentReport.html");
+		htmlReport.config().setDocumentTitle("Automation testing");
+		htmlReport.config().setEncoding("utf-8");
+		htmlReport.config().setReportName("PHP Travels Testing");
+		htmlReport.config().setTheme(Theme.DARK);
+		
+		extent =new ExtentReports();
+		extent.attachReporter(htmlReport);
+
+	}
+	
+	
+	@AfterTest
+	public void endReport() {
+		
+		extent.flush();
 	}
 
 }
